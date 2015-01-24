@@ -6,4 +6,4 @@ This is still a shell.  It was created to be able to use github pages for my
 (other) github projects.  I expect to expand this to at least provide an index
 to the project pages.
 
-See the [github page](mMerlin.github.io)
+See the github page at http://mmerlin.github.io/
