@@ -4,8 +4,6 @@ category : installation
 tags : [atom, fedora, editor]
 title : Installing Atom editor on Fedora 21
 ---
-{% include JB/setup %}
-
 See the end of this post for the raw steps that worked for me.  The background
 that lead there comes first.
 

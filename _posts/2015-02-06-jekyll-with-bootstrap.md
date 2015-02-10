@@ -5,7 +5,6 @@ tags : [jekyll, bootstrap, refactor, theme]
 tagline : "Make the world a better place"
 title : "Refactor Jekyll Bootstrap themes and layouts"
 ---
-{% include JB/setup %}
 The
 <a href="https://github.com/plusjade/jekyll-bootstrap/">JekyllBootstrap</a>
 repository provides a quick and easy way to get
