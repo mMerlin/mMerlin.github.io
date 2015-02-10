@@ -1,0 +1,30 @@
+---
+layout: verybare
+title: Test meme Maker
+css:
+  normalize: true
+  custom:
+    "css/memeMaker.css":
+      media: "all"
+js:
+  custom:
+    "js/memeMaker.js": false
+---
+<div>{% comment %}
+  custom:
+    "css/memeMaker.css":
+      media: "all"
+    "css/memeMaker2.css": false
+  {% endcomment %}
+  <input type="file" id="file" />
+</div>
+<div id="image-container">
+  <canvas width="500" height="500"></canvas>
+  <div>
+    <span>Top Line:</span><br/>
+    <input id="topLineText" type="text"><br/>
+    <span>Bottom Line:</span><br/>
+    <input id="bottomLineText" type="text"><br/>
+    <button id="saveBtn">Save</button>
+  </div>
+</div>
