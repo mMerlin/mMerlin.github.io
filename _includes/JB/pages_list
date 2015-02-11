@@ -5,35 +5,47 @@ Usage:
   2) include JB/pages_list
   example:
     <ul>
-  	  {% assign pages_list = site.pages %}  
-  	  {% include JB/pages_list %}
-  	</ul>
-  	
-  Grouping: (optional): 
-  	assign the 'group' variable to constrain the list to only pages/posts
-  	in the given group. Note you must define the group manually in the page/post
-  	meta-data to use this feature.
-  	Grouping is mainly helpful for non-post pages.
-  	If you want to group posts, it's easier/better to tag them, then pass the tagged posts array.
-  	i.e. site.tags.cool_tag (this returns an array of posts tagged: cool_tag)
-  	
-  This helper can be seen in use at: ../_layouts/default.html
--->{% endcomment %}
+      {% assign pages_list = site.pages %}
+      {% include JB/pages_list %}
+    </ul>
 
-{% if site.JB.pages_list.provider == "custom" %}
+  Grouping: (optional):
+    assign the 'group' variable to constrain the list to only pages/posts
+    in the given group. Note you must define the group manually in the page/post
+    meta-data to use this feature.
+    Grouping is mainly helpful for non-post pages.
+    If you want to group posts, it's easier/better to tag them, then pass the tagged posts array.
+    i.e. site.tags.cool_tag (this returns an array of posts tagged: cool_tag)
+
+  This helper can be seen in use at: ../_layouts/default.html
+-->
+
+<!--
+It is not safe to have the include for custom/pages_list inside of the capture
+junk wrapper.  That would add additional constraints on the custom code.  With
+the current implmentation, the extra output from this procedure has been reduced
+to a single leading newline character.  Much better than previously, and with
+minimal uglification of the code.
+-->
+
+{% endcomment %}{% if site.JB.pages_list.provider == "custom" %}
   {% include custom/pages_list %}
-{% else %}
+{% else %}{% capture junk %}
+  {% assign goodlines = nil %}
+  {% assign indentprefix = '        ' %}
   {% for node in pages_list %}
     {% if node.title != null %}
       {% if group == null or group == node.group %}
-      	{% if page.url == node.url %}
-      	<li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
-      	{% else %}
-      	<li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
-      	{% endif %}
+        {% assign classattr = nil %}
+        {% if page.url == node.url %}
+          {% assign classattr = ' class="active"' %}
+        {% endif %}
+        {% capture goodlines %}{{ goodlines }}
+{{ indentprefix }}<li{{ classattr }}><a href="{{ BASE_PATH }}{{node.url}}"{{ classattr }}>{{node.title}}</a></li>{% endcapture %}
       {% endif %}
     {% endif %}
   {% endfor %}
-{% endif %}
+{% endcapture %}{% endif %}{% capture junk %}
 {% assign pages_list = nil %}
 {% assign group = nil %}
+{% endcapture %}{% assign junk = nil %}{{ goodlines }}
