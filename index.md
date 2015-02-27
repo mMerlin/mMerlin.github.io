@@ -13,10 +13,11 @@ tagline: Supporting tagline
 * <a href="https://www.udacity.com/">Udacity</a> Frontend Web Developer NanoDegree
   * <a href="/mug-mockup/">Project 1:</a> mug-mockup
   * <a href="/resume/">Project 2:</a> résumé
+  * <a href="/frontend-nanodegree-arcade-game/">Project 3:</a> Frogger (work in progress)
   * Samples from courses
     * HTML5 Canvas
       * <a href="/udacity/canvas/memeMaker.html">Simple Meme Maker</a>
-
+http://mmerlin.github.io/frontend-nanodegree-arcade-game/
 ## Posts{% capture junk %}
   {% assign goodlines = nil %}
   {% for post in site.posts %}
