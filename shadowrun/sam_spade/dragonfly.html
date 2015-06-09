@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Sam Spade</title>
+	<style type="text/css">
+					*
+					{
+						font-family: segoe condensed, tahoma, trebuchet ms, arial;
+						font-size: 8pt;
+						text-align: left;
+					}
+					.tableborder
+					{
+						border: solid 2px #1c4a2d;
+					}
+					.tablebordertop
+					{
+						border-top: solid 2px #1c4a2d;
+					}
+					.tableborderbottom
+					{
+						border-bottom: solid 2px #1c4a2d;
+					}
+					.tableborderleft
+					{
+						border-left: solid 2px #1c4a2d;
+					}
+					.tableborderright
+					{
+						border-right: solid 2px #1c4a2d;
+					}
+					.AttribName
+					{
+						text-align: right;
+            font-weight: bold;
+            padding-right: 3px;
+					}
+					.AttribValue
+					{
+						text-align: left;
+            padding-left: 3px;
+					}
+					.ItemList
+					{
+						text-align: left;
+            padding-left: 3px;
+					}
+					.ItemListHeader
+					{
+						text-align: left;
+            padding-left: 3px;
+            font-weight: bold;
+            text-decoration:underline;
+					}
+					.conditionmonitorbox
+					{
+						border: solid 2px #1c4a2d;
+						width: 24px;
+						height: 24px;
+						text-align: right;
+						vertical-align: text-bottom;
+						font-weight: bold;
+					}
+					.conditionmonitorboxfilled
+					{
+						border: solid 2px #1c4a2d;
+						width: 24px;
+						height: 24px;
+						text-align: right;
+						vertical-align: text-bottom;
+						font-weight: bold;
+						background-color: #bbbbbb;
+					}
+					.conditionmonitorboxnotused
+					{
+						border: solid 0px #1c4a2d;
+						width: 24px;
+						height: 24px;
+						text-align: right;
+						vertical-align: text-bottom;
+						font-weight: bold;
+						background-color: #FFFFFF;
+					}
+					.rowsummary
+					{
+						filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a6349', endColorstr='#769582'); /* for IE */
+						background: -webkit-gradient(linear, left top, left bottom, from(#3a6349), to(#769582)); /* for webkit browsers */
+						background: -moz-linear-gradient(top,  #3a6349,  #769582); /* for firefox 3.6+ */
+						background-color: #3a6349;
+						color: #ffffff;
+						font-weight: bold;
+						font-style: italic;
+					}
+					.rowsummarybutton
+					{
+						filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a6349', endColorstr='#769582'); /* for IE */
+						background: -webkit-gradient(linear, left top, left bottom, from(#3a6349), to(#769582)); /* for webkit browsers */
+						background: -moz-linear-gradient(top,  #3a6349,  #769582); /* for firefox 3.6+ */
+						background-color: #3a6349;
+						color: #ffffff;
+						font-weight: bold;
+					}
+					.attributecell
+					{
+					}
+					.attributecell p
+					{
+						padding: 2px;
+						margin: 4px;
+						border: solid 1px #1c4a2d;
+					}
+					.indent
+					{
+						padding-left: 20px;
+					}
+					.hseparator
+					{
+						height: 5px;
+					}
+					.vseparator
+					{
+						width: 5px;
+					}
+					.block
+					{
+						page-break-inside: avoid;
+					}
+          .zalomit {
+            page-break-after: always;
+          }
+
+          .common1 {
+            width: 17cm;
+            display: block;
+            color: red;
+            text-align: center;
+            background: #FAEBD7;
+            font-weight: bold;
+            border: 1px red solid;
+          }
+
+          @page {
+            margin: 1.9cm;
+            size: 21cm 27.9cm;
+          }
+
+          @media print {
+            .zalomit {
+              page-break-after: always;
+            }
+            .sectionhide {
+              visibility: hidden;
+              display:none;
+            }
+            .rowsummarybutton {
+              visibility: hidden;
+              display:none;
+            }
+
+            .table {
+              width: 17cm;
+            }
+          }
+          @media screen {
+            .sectionhide {
+              visibility: visible;
+            }
+            .rowsummarybutton {
+              visibility: visible;
+            }
+          }
+			</style><script>
+      function zalomit(what,idx)
+      {
+         var elem = document.getElementById(idx);
+         if(elem.style.pageBreakBefore=='always')  {
+            txt="NO";
+            elem.style.pageBreakBefore = 'auto';
+         }
+         else {
+            txt="YES";
+            elem.style.pageBreakBefore = 'always';
+         }
+         what.innerHTML = "Page-break: " + txt;
+      }
+      function showhide(what,idx)
+      {
+         var elem = document.getElementById(idx);
+         if(elem.className!='sectionhide')  {
+           txt="NO";
+           elem.className = 'sectionhide';
+        //   elem.style.display = 'none';
+         }
+         else {
+           txt="YES";
+           elem.className = 'block';
+          // elem.style.display = 'block';
+         }
+         what.innerHTML = "Show: " + txt;
+      }
+      </script>
+</head>
+<body>
+	<div class="block" id="VehicleBlock1"><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborder"><tr><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderright tableborderbottom"><tr><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderright" style="padding-right:3px;"><tr><td class="AttribName">Vehicle</td><td class="AttribValue">Cyberspace Designs Dragonfly (Minidrone)</td><td class="AttribName">System</td><td class="AttribValue">6</td></tr><tr><td class="AttribName">Name</td><td class="AttribValue" /><td class="AttribName">Firewall</td><td class="AttribValue">6</td></tr><tr><td class="AttribName">Category</td><td class="AttribValue">Drones: Mini</td><td class="AttribName">Response</td><td class="AttribValue">5</td></tr><tr><td class="AttribName">Source</td><td class="AttribValue">AR117</td><td class="AttribName">Signal</td><td class="AttribValue">5</td></tr><tr><td colspan="4" class="hseparator" /></tr><tr><td class="AttribName">Body</td><td class="AttribValue">1</td><td class="AttribName">Clearsight</td><td class="AttribValue">4</td></tr><tr><td class="AttribName">Armor</td><td class="AttribValue">1</td><td class="AttribName">Defense</td><td class="AttribValue" /></tr><tr><td class="AttribName">Pilot</td><td class="AttribValue">6</td><td class="AttribName">Electronic Warfare</td><td class="AttribValue" /></tr><tr><td class="AttribName">Sensor</td><td class="AttribValue">6</td><td class="AttribName">Maneuver</td><td class="AttribValue">4</td></tr><tr><td class="AttribName">Sensor Signal</td><td class="AttribValue">4</td><td class="AttribName">Targeting</td><td class="AttribValue">4</td></tr><tr><td class="AttribName">Device Rating</td><td class="AttribValue">3</td><td class="AttribName">Analyze</td><td class="AttribValue">6</td></tr><tr><td class="AttribName">Acceleration</td><td class="AttribValue">3/15</td><td class="AttribName">Encrypt</td><td class="AttribValue">6</td></tr><tr><td class="AttribName">Speed</td><td class="AttribValue">30</td><td class="AttribName">Scan</td><td class="AttribValue">6</td></tr><tr><td class="AttribName">Handling</td><td class="AttribValue">1</td><td class="AttribName">Armor</td><td class="AttribValue" /></tr><tr><td class="AttribName">Vehicle Worth</td><td class="AttribValue">100400</td><td class="AttribName">ECCM</td><td class="AttribValue">6</td></tr></table></td><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderleft" style="padding-left:3px;"><tr><td colspan="2" class="tableborderbottom"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td colspan="4" class="ItemListHeader">Applicable Active Skills</td></tr><tr><td width="50%"><strong>SKILL NAME</strong></td><td width="20%" style="text-align:center;"><strong>POOL</strong></td><td width="10%" style="text-align:center;"><strong>RTG.</strong></td><td width="20%" style="text-align:center;"><strong>ATT.</strong></td></tr><tr><td width="50%" valign="top">Gunnery</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">0</td><td width="10%" style="text-align:center;" valign="top">2 (AGI)
+												</td></tr><tr bgcolor="#e4e4e4"><td width="50%" valign="top">Navigation</td><td width="10%" style="text-align:center;" valign="top">3</td><td width="10%" style="text-align:center;" valign="top">0</td><td width="10%" style="text-align:center;" valign="top">4 (INT)
+												</td></tr><tr><td width="50%" valign="top">Pilot Aircraft (Rigged)</td><td width="10%" style="text-align:center;" valign="top">3 (5)</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">2 (REA)
+												</td></tr><tr bgcolor="#e4e4e4"><td width="50%" valign="top">Pilot Ground Craft (Wheeled)</td><td width="10%" style="text-align:center;" valign="top">3 (5)</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">2 (REA)
+												</td></tr><tr><td width="50%" valign="top">Pilot Watercraft</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">0</td><td width="10%" style="text-align:center;" valign="top">2 (REA)
+												</td></tr></table></td></tr><tr><td><table class="ItemList"><tr><td class="ItemListHeader">MODS</td></tr><tr><td>Chameleon Coating</td></tr><tr><td bgcolor="#e4e4e4">Firewall 6</td></tr><tr><td>Fuzzy Logic</td></tr><tr><td bgcolor="#e4e4e4">Improved Sensor Array</td></tr><tr><td>Improved Takeoff and Landing Level 2</td></tr><tr><td bgcolor="#e4e4e4">Pilot Program Rating 6</td></tr><tr><td>Response 5</td></tr><tr><td bgcolor="#e4e4e4">Signal 5</td></tr><tr><td>System 6</td></tr><tr><td bgcolor="#e4e4e4">Touch Sensors</td></tr><tr><td>Weapon Mount (Normal, Concealed, Fixed, Remote)</td></tr></table></td><td><table class="ItemList"><tr><td class="ItemListHeader">GEAR</td></tr><tr><td>Custom Placeholder (Sensor Software)
+                        (Empathy Software
+                          Rating 6, Gait Analysis Software
+                          Rating 1, Lie Detection Software
+                          Rating 1, Noise Analysis Software
+                          Rating 1, Weapon Watcher Software
+                          Rating 1)
+                      </td></tr><tr><td bgcolor="#e4e4e4">Custom Placeholder (Matrix Programs)
+                        (Analyze
+                          Rating 6
+                            [Copy Protection 6, Crashguard, Ergonomic, Registration, Viral Resistance 6]
+                          , Attack
+                          Rating 6
+                            [Copy Protection 6, Registration, Shredder, Targeting]
+                          , ECCM
+                          Rating 6
+                            [Copy Protection 6, Crashguard, Ergonomic, Registration, Viral Resistance 6]
+                          , Encrypt
+                          Rating 6
+                            [Copy Protection 6, Crashguard, Ergonomic, Registration, Viral Resistance 6]
+                          , Purge
+                          Rating 6
+                            [Copy Protection 6, Crashguard, Ergonomic, Registration, Viral Resistance 6]
+                          , Scan
+                          Rating 6
+                            [Copy Protection 6, Crashguard, Ergonomic, Registration, Viral Resistance 6]
+                          )
+                      </td></tr><tr><td>Custom Placeholder (Autosofts)
+                        (Adaptability
+                          Rating 3
+                            [Copy Protection 3, Registration]
+                          , Chaser
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          , Clearsight
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          , Covert Ops
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          , Maneuver (Cyberspace Designs Dragonfly)
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          , Targeting (Special Ranged Weapon)
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          , Trailblazer
+                          Rating 4
+                            [Copy Protection 4, Registration]
+                          )
+                      </td></tr><tr><td bgcolor="#e4e4e4">Small Drone Sensor
+                        (Camera
+                          Rating 6
+                            [Low Light, Thermographic, Vision Enhancement 3, Vision Magnification]
+                          , Olfactory Sensor
+                          Rating 6, Ultrawideband Radar
+                          Rating 4)
+                      </td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td colspan="2"><tr><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborder"><tr><td width="20%"><strong>WEAPON</strong></td><td width="15%" style="text-align:center;"><strong>DAMAGE</strong></td><td width="12%" style="text-align:center;"><strong>AP</strong></td><td width="13%" style="text-align:center;"><strong>MODE</strong></td><td width="12%" style="text-align:center;"><strong>RC</strong></td><td width="15%" style="text-align:center;"><strong>AMMO</strong></td><td width="13%" style="text-align:center;" /></tr><tr><td width="20%" valign="top">Ares S-III Super Squirt</td><td width="15%" style="text-align:center;" valign="top">Chemical</td><td width="12%" style="text-align:center;" valign="top">-</td><td width="13%" style="text-align:center;" valign="top">SA</td><td width="12%" style="text-align:center;" valign="top">0</td><td width="15%" style="text-align:center;" valign="top">20(c)</td><td width="13%" style="text-align:center;" valign="top">SR4 319</td></tr><tr><td /><td style="text-align:center;" valign="top">S: 0-5</td><td style="text-align:center;" valign="top">M: 6-15</td><td style="text-align:center;" valign="top">L: 16-30</td><td style="text-align:center;" valign="top">E: 31-50</td><td colspan="2" /></tr><tr><td class="rowsummary" colspan="7">
+													RANGED WEAPONS
+												</td></tr></table></td></tr></td></tr><tr><td colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tr><td><table cellspacing="0" cellpadding="0" border="0"><tr><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+
+          Down
+        </td><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /></tr></table></td></tr></table></td></tr><tr><td colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="rowsummary">
+            VEHICLE/DRONE
+          </td><td class="rowsummarybutton" colspan="1" onClick="showhide(this,'VehicleBlock1');">
+             Show: YES
+          </td><td class="rowsummarybutton" width="50%" colspan="1" onClick="zalomit(this,'VehicleBlock1');">
+             Page-break: NO
+          </td></tr></table></td></tr></table><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="hseparator" /></tr></table></div><div class="block" id="VehicleBlock2"><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborder"><tr><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderright tableborderbottom"><tr><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderright" style="padding-right:3px;"><tr><td class="AttribName">Vehicle</td><td class="AttribValue">Mercury Comet (Sedan)</td><td class="AttribName">System</td><td class="AttribValue">3</td></tr><tr><td class="AttribName">Name</td><td class="AttribValue" /><td class="AttribName">Firewall</td><td class="AttribValue">3</td></tr><tr><td class="AttribName">Category</td><td class="AttribValue">Cars</td><td class="AttribName">Response</td><td class="AttribValue">3</td></tr><tr><td class="AttribName">Source</td><td class="AttribValue">SR4348</td><td class="AttribName">Signal</td><td class="AttribValue">3</td></tr><tr><td colspan="4" class="hseparator" /></tr><tr><td class="AttribName">Body</td><td class="AttribValue">10</td><td class="AttribName">Clearsight</td><td class="AttribValue" /></tr><tr><td class="AttribName">Armor</td><td class="AttribValue">6</td><td class="AttribName">Defense</td><td class="AttribValue" /></tr><tr><td class="AttribName">Pilot</td><td class="AttribValue">2</td><td class="AttribName">Electronic Warfare</td><td class="AttribValue" /></tr><tr><td class="AttribName">Sensor</td><td class="AttribValue">1</td><td class="AttribName">Maneuver</td><td class="AttribValue" /></tr><tr><td class="AttribName">Sensor Signal</td><td class="AttribValue">5</td><td class="AttribName">Targeting</td><td class="AttribValue" /></tr><tr><td class="AttribName">Device Rating</td><td class="AttribValue">3</td><td class="AttribName">Analyze</td><td class="AttribValue" /></tr><tr><td class="AttribName">Acceleration</td><td class="AttribValue">15/30</td><td class="AttribName">Encrypt</td><td class="AttribValue" /></tr><tr><td class="AttribName">Speed</td><td class="AttribValue">110</td><td class="AttribName">Scan</td><td class="AttribValue" /></tr><tr><td class="AttribName">Handling</td><td class="AttribValue">0</td><td class="AttribName">Armor</td><td class="AttribValue" /></tr><tr><td class="AttribName">Vehicle Worth</td><td class="AttribValue">14000</td><td class="AttribName">ECCM</td><td class="AttribValue" /></tr></table></td><td><table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableborderleft" style="padding-left:3px;"><tr><td colspan="2" class="tableborderbottom"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td colspan="4" class="ItemListHeader">Applicable Active Skills</td></tr><tr><td width="50%"><strong>SKILL NAME</strong></td><td width="20%" style="text-align:center;"><strong>POOL</strong></td><td width="10%" style="text-align:center;"><strong>RTG.</strong></td><td width="20%" style="text-align:center;"><strong>ATT.</strong></td></tr><tr><td width="50%" valign="top">Gunnery</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">0</td><td width="10%" style="text-align:center;" valign="top">2 (AGI)
+												</td></tr><tr bgcolor="#e4e4e4"><td width="50%" valign="top">Navigation</td><td width="10%" style="text-align:center;" valign="top">3</td><td width="10%" style="text-align:center;" valign="top">0</td><td width="10%" style="text-align:center;" valign="top">4 (INT)
+												</td></tr><tr><td width="50%" valign="top">Pilot Ground Craft (Wheeled)</td><td width="10%" style="text-align:center;" valign="top">3 (5)</td><td width="10%" style="text-align:center;" valign="top">1</td><td width="10%" style="text-align:center;" valign="top">2 (REA)
+												</td></tr></table></td></tr><tr><td /><td><table class="ItemList"><tr><td class="ItemListHeader">GEAR</td></tr><tr><td>Vehicle Sensor</td></tr></table></td></tr></table></td></tr></table></td></tr><tr><td colspan="2" /></tr><tr><td colspan="2"><table cellspacing="0" cellpadding="0" border="0"><tr><td><table cellspacing="0" cellpadding="0" border="0"><tr><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+      </td><td class="conditionmonitorbox">
+       
+
+          Down
+        </td><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /><td class="conditionmonitorboxnotused" /></tr></table></td></tr></table></td></tr><tr><td colspan="2"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="rowsummary">
+            VEHICLE/DRONE
+          </td><td class="rowsummarybutton" colspan="1" onClick="showhide(this,'VehicleBlock2');">
+             Show: YES
+          </td><td class="rowsummarybutton" width="50%" colspan="1" onClick="zalomit(this,'VehicleBlock2');">
+             Page-break: NO
+          </td></tr></table></td></tr></table><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td class="hseparator" /></tr></table></div></body></html>
