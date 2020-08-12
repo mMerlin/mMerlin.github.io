@@ -52,7 +52,7 @@ original installation articles.
 
 During the searches for answers, I had looked at the main <a
 href="http://nodejs.org/">NODE.JS</a> web site.  Since that was showing a newer
-version than yum was installing, I figured I was avoid some of the install and
+version than yum was installing, I figured I could avoid some of the install and
 upgrade steps from the instructions I started with.  I would just add the
 nodesource repo to yum, and install node.js from there.  Still not quite.  After
 that install, software versions seemed to be where Atom needed them to be, but
