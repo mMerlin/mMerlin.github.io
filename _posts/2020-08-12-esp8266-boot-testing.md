@@ -10,10 +10,10 @@ I created a small breadboard circuit using an ESP8266 (ESP01 board) that pulls e
 
 The circuit was input into [Fritzing](https://fritzing.org). The schematic view 2 LEDs *almost* connected to each GPIO pin. There are 2 LEDs shown on the breadboard view as well, but none connected to the actual pins. In reality, only one LED is used per GPIO pin. That single LED is moved one column left or right to act as a combination pullup or pulldown and visual state indicator.
 
-[Boot Load Tester](/fritzing/boot_load_tester.fzz)
+[Boot Load Tester]({{site.url}}/fritzing/boot_load_tester.fzz)
 
 After uploading the testing code, the LEDs can each be set to pullup or pulldown, and the power cycled to examine the initialization states.  For starters, GPIO0 must be pulled high to have the ESP01 boot from the SPI flash memory, where the Arduino Sketch is stored. That leaves only 3 LEDs, a total of 8 combinations to check. To look for unacceptable 'pulses' when powering up. Below are png exports from that Frtizing sketch file. The starting state with no LEDs in circuit. After finding the combination(s) that work with the (test) code for a project, the LEDs could be moved into position, and copy of the sketch used as documentation.
 
-![Breadboard View](/fritzing/boot_load_tester-bb.png)
+![Breadboard View]({{site.url}}/fritzing/boot_load_tester-bb.png)
 
-![Schematic View](/fritzing/boot_load_tester-sch.png)
+![Schematic View]({{site.url}}/fritzing/boot_load_tester-sch.png)
