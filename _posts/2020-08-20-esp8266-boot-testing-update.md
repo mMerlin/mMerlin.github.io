@@ -5,7 +5,7 @@ tags : [fritzing, esp01, esp8266, Arduino, initialization]
 title : ESP8266 Boot mode testing update
 ---
 
-Post [ESP8266 Boot Testing]({% post_url 2020-08-12-esp8266-boot-testing %}) shows a setup for testing how an ESPO1 board behaves on power up, with the GPIO pins in different states. This is a followup to that, with an updated Fritzing sketch, example testing code, and experimental results. The sketch has been adjusted slightly to both match my "as built", and to better show how the breadboard circuit is intended to be used.
+Post [ESP8266 Boot Testing]({% post_url 2020-08-12-esp8266-boot-testing %}) shows a setup for testing how an ESP01 board behaves on power up, with the GPIO pins in different states. This is a followup to that, with an updated Fritzing sketch, example testing code, and experimental results. The sketch has been adjusted slightly to both match my "as built", and to better show how the breadboard circuit is intended to be used.
 
 I also included my test Arduino sketch in the code view of the Fritzing sketch, with a comment block showing the main test results. In summary, the power up constraints to get the board to run the loaded program are not as sever as indicted in the documentation. It seems that as long as GPIO0 is not *actively* held low, the ESP8266 power on boot loads and runs the Arduino sketch. The testing included connecting a 470K Ohm resistor to ground. That also ran the loaded sketch. The 470K is large enough to act the same as leaving the pin unconnected (floating). It is a high impedance load.
 
